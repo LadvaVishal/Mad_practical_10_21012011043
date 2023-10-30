@@ -1,74 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:orientation="horizontal"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginHorizontal="50dp"
-        app:cardElevation="20dp" >
-        <LinearLayout
-            android:orientation="horizontal"
+        android:layout_marginHorizontal="20dp"
+        app:cardElevation="20dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
+            android:layout_height="wrap_content">
 
             <com.google.android.material.button.MaterialButton
-                android:layout_gravity="center"
-                android:id="@+id/person_image"
+                android:id="@+id/btnPerson"
                 style="?materialIconButtonFilledStyle"
-                android:layout_width="64dp"
-                android:layout_height="64dp"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
                 app:icon="@drawable/baseline_person_24"
                 app:iconGravity="textStart"
-                app:iconSize="46dp"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:iconSize="40dp"
+                app:layout_constraintEnd_toStartOf="@+id/linearLayout"
+                app:layout_constraintHorizontal_bias="0.192"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-
             <LinearLayout
-                android:layout_width="0dp"
-                android:layout_weight="0.3"
+                android:id="@+id/linearLayout"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="20dp"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toStartOf="@+id/btnLocation"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/person_image"
-                android:orientation="vertical" >
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/textName1"
-                    android:text="Yesenia Yang"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/text_no"
-                    android:text="+919925053674"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/textemail"
-                    android:text="yesenia_yang@gnu.ac.in"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/textaddress"
-                    android:text="16,Sackett Street,Courtland,Michigan"/>
-            </LinearLayout>
-            <com.google.android.material.button.MaterialButton
-                android:layout_width="64dp"
-                android:layout_height="64dp"
-                android:layout_gravity="center"
-                android:id="@+id/location"
-                app:icon="@drawable/baseline_location_on_24"
-                style="?materialIconButtonFilledStyle"
-                app:iconSize="46dp"
-                app:iconGravity="textEnd"/>
+                app:layout_constraintStart_toEndOf="@id/btnPerson"
+                app:layout_constraintBottom_toBottomOf="parent">
 
-        </LinearLayout>
+                <TextView
+                    android:id="@+id/name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="yesenia Yang"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/mobile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="+918598547852" />
+
+                <TextView
+                    android:id="@+id/emailid"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:text="yeseniayeng12@gmail.com" />
+
+                <TextView
+                    android:id="@+id/address"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:text="16,nearby ram hospital" />
+            </LinearLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnLocation"
+                style="?materialIconButtonFilledStyle"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                app:icon="@drawable/baseline_location_on_24"
+                app:iconGravity="textStart"
+                app:iconSize="40dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/linearLayout"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

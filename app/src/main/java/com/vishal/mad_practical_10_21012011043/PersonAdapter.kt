@@ -1,31 +1,26 @@
 package com.vishal.mad_practical_10_21012011043
-
 import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
-import android.widget.Button
 import android.widget.TextView
+import com.google.android.material.button.MaterialButton
 
-class  PersonAdapter( context: Context,val personArray:ArrayList<Person>):ArrayAdapter<Person>(context,0,personArray)
-{
+class PersonAdapter (context: Context, val PersonArray:ArrayList<Person>):ArrayAdapter<Person>(context,0,PersonArray) {
+
+
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
-        val view=LayoutInflater.from(context).inflate(R.layout.person_item,parent,false)
-        val contact=getItem(position)
-
-        view.findViewById<TextView>(R.id.textName1).text = contact?.name
-        view.findViewById<TextView>(R.id.text_no).text = contact?.phoneNo
-        view.findViewById<TextView>(R.id.textemail).text = contact?.emailId
-        view.findViewById<TextView>(R.id.textaddress).text = contact?.address
-        val button1: Button = view.findViewById(R.id.location)
-        button1.setOnClickListener {
-            // Start the MapsActivity when button1 is clicked
-            val intent = Intent(context, MapsActivity::class.java)
-            context.startActivity(intent)
-        }
-
+        val view = LayoutInflater.from(context).inflate(R.layout.person_item, parent, false)
+        view.findViewById<TextView>(R.id.name).text = PersonArray[position].name
+        view.findViewById<TextView>(R.id.mobile).text = PersonArray[position].phoneNo
+        view.findViewById<TextView>(R.id.emailid).text = PersonArray[position].emailId
+        view.findViewById<TextView>(R.id.address).text = PersonArray[position].address
+        view.findViewById<MaterialButton>(R.id.btnLocation).setOnClickListener {
+            Intent(context, MapsActivity::class.java).putExtra("Object", PersonArray[position])
+                .apply { context.startActivity(this) }}
         return view
+
     }
 }

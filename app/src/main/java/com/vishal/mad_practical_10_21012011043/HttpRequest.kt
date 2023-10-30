@@ -10,14 +10,14 @@ import java.net.URL
 
 class HttpRequest {
     private val TAG = "HttpRequest"
-    fun makeServiceCall(reqUrl: String?,token:String?=null): String? {
+    fun makeServiceCall(reqUrl: String?, token: String? = null): String? {
         var response: String? = null
         try {
             val url = URL(reqUrl)
             val conn = url.openConnection() as HttpURLConnection
-            if(token != null){
-                conn.setRequestProperty("Authorization","Bearer $token");
-                conn.setRequestProperty("Content-Type","application/json");
+            if (token != null) {
+                conn.setRequestProperty("Authorization", "Bearer $token");
+                conn.setRequestProperty("Content-Type", "application/json");
             }
             conn.requestMethod = "GET"
             response = convertStreamToString(BufferedInputStream(conn.inputStream))
@@ -52,5 +52,4 @@ class HttpRequest {
         }
         return sb.toString()
     }
-
 }
